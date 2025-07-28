@@ -1,3 +1,6 @@
 // index.js
 
-console.log("Hello from Binary Search Tree!");
+import { Node } from "./Node.js";
+
+const leaf = new Node(5);
+console.log(leaf);
