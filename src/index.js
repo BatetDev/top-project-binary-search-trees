@@ -1,6 +1,5 @@
 // src/index.js
 
-import { Node } from "./Node.js";
 import { Tree } from "./Tree.js";
 
 const tree = new Tree([1, 2, 3]);

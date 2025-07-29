@@ -1,6 +1,12 @@
-// src/Tree.js
+// src/BST.js
 
-import { Node } from "./Node.js";
+class Node {
+  constructor(data, left = null, right = null) {
+    this.data = data;
+    this.left = left;
+    this.right = right;
+  }
+}
 
 export class Tree {
   constructor(array) {
