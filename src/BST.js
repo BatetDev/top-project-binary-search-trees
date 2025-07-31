@@ -30,6 +30,34 @@ export class BST {
 
     return node;
   }
+
+  insert(value) {
+    if (!this.root) {
+      this.root = new Node(value);
+      return;
+    }
+
+    let currentNode = this.root;
+
+    while (currentNode) {
+      if (value < currentNode.data) {
+        if (!currentNode.left) {
+          currentNode.left = new Node(value);
+          return;
+        }
+        currentNode = currentNode.left;
+      } else if (value > currentNode.data) {
+        if (!currentNode.right) {
+          currentNode.right = new Node(value);
+          return;
+        }
+        currentNode = currentNode.right;
+      } else {
+        console.log(`Value ${value} already exists. Ignoring.`);
+        return;
+      }
+    }
+  }
 }
 
 // For visualization
