@@ -150,3 +150,7 @@ export const prettyPrint = (node, prefix = "", isLeft = true) => {
       - If root → set this.root = null
       - Else → set parent's link to null
 */
+
+const prettyPrint2 {
+  let test = null;
+}
