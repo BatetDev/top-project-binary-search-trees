@@ -134,23 +134,3 @@ export const prettyPrint = (node, prefix = "", isLeft = true) => {
     prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
   }
 };
-
-/* 
-1. If root is null → return (empty tree)
-2. Start traversal:
-   - currentNode = root
-   - parentNode = null
-3. While currentNode is not null:
-   a. If value < currentNode.data → go left
-   b. If value > currentNode.data → go right
-   c. If value === currentNode.data → BREAK (found it)
-4. If currentNode is null → not found → return
-5. Now handle deletion:
-   CASE 1: No children → leaf
-      - If root → set this.root = null
-      - Else → set parent's link to null
-*/
-
-const prettyPrint2 {
-  let test = null;
-}
