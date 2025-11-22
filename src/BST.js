@@ -32,30 +32,29 @@ export class BST {
   }
 
   insert(value) {
+    // Handle empty tree
     if (!this.root) {
       this.root = new Node(value);
-      return;
+      return true;
     }
 
     let currentNode = this.root;
 
     while (currentNode) {
-      if (value < currentNode.data) {
-        if (!currentNode.left) {
-          currentNode.left = new Node(value);
-          return;
-        }
-        currentNode = currentNode.left;
-      } else if (value > currentNode.data) {
-        if (!currentNode.right) {
-          currentNode.right = new Node(value);
-          return;
-        }
-        currentNode = currentNode.right;
-      } else {
+      if (value === currentNode.data) {
         console.log(`Value ${value} already exists. Ignoring.`);
-        return;
+        return false;
       }
+
+      // Choose left or right base on value comparison
+      const direction = value < currentNode.data ? "left" : "right";
+
+      // Insert if empty spot found, otherwise continue traversing
+      if (!currentNode[direction]) {
+        currentNode[direction] = new Node(value);
+        return true;
+      }
+      currentNode = currentNode[direction];
     }
   }
 
@@ -108,6 +107,7 @@ export class BST {
         currentNode = currentNode.right;
       }
     }
+    return null; // Not found
   }
 }
 
