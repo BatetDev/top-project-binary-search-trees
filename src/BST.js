@@ -97,17 +97,26 @@ export class BST {
   }
 
   find(value) {
+    if (!this.root) {
+      console.log("Tree is empty.");
+      return null;
+    }
+
     let currentNode = this.root;
+
     while (currentNode) {
       if (value === currentNode.data) {
+        console.log(`Value ${value} found.`);
         return currentNode;
-      } else if (value < currentNode.data) {
-        currentNode = currentNode.left;
-      } else {
-        currentNode = currentNode.right;
       }
+
+      const direction = value < currentNode.data ? "left" : "right";
+      if (!currentNode[direction]) {
+        console.log(`Value ${value} not found.`);
+        return null;
+      }
+      currentNode = currentNode[direction];
     }
-    return null; // Not found
   }
 }
 

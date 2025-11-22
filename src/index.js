@@ -12,8 +12,8 @@ tree.insert(5);
 tree.insert(5);
 tree.insert(98);
 
-console.log(tree.find(99));
-console.log(tree.find(73));
-console.log(tree.find(967));
+tree.find(99);
+tree.find(73);
+tree.find(967);
 
 prettyPrint(tree.root);
