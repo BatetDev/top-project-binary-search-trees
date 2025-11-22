@@ -7,12 +7,17 @@ const tree = new BST([
 ]);
 
 prettyPrint(tree.root);
-
+/*
 tree.insert(5);
 tree.insert(5);
 tree.insert(98);
 tree.delete(5);
 tree.delete(48);
 tree.delete(78);
-
-prettyPrint(tree.root);
+*/
+console.log(tree.find(1));
+console.log(tree.find(99));
+console.log(tree.find(12));
+console.log(tree.find(85));
+console.log(tree.find(37));
+console.log(tree.find(967));

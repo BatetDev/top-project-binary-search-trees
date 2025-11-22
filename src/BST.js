@@ -1,28 +1,5 @@
 // src/BST.js
 
-/*
-  TODO: Complete the delete(value) method
-  --------------------------------------
-  Currently supports:
-  ✓ Deleting leaf nodes (no children)
-
-  Still need to implement:
-  ◻ Case 2: Node with one child
-    - If node has only a left child: bypass to parent
-    - If node has only a right child: bypass to parent
-    - Handle root deletion (update this.root)
-
-  ◻ Case 3: Node with two children
-    - Find the in-order successor (smallest in right subtree)
-    - Copy successor's value into the node to delete
-    - Delete the original successor node (it has 0 or 1 child → Case 1 or 2)
-
-  Notes:
-  - Use object reference comparison (parentNode.left === currentNode) to update links
-  - Avoid rebuilding the tree — work directly with node pointers
-  - Preserve BST property: left < node < right
-*/
-
 class Node {
   constructor(data, left = null, right = null) {
     this.data = data;
@@ -118,6 +95,19 @@ export class BST {
     }
 
     return;
+  }
+
+  find(value) {
+    let currentNode = this.root;
+    while (currentNode) {
+      if (value === currentNode.data) {
+        return currentNode;
+      } else if (value < currentNode.data) {
+        currentNode = currentNode.left;
+      } else {
+        currentNode = currentNode.right;
+      }
+    }
   }
 }
 
