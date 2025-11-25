@@ -67,3 +67,9 @@ prettyPrint(smallTree.root);
   smallTree.deleteItem(parseInt(val));
   prettyPrint(smallTree.root);
 });
+
+const tree3 = new BST([2, 1, 3]);
+console.log("Level-order traversal:");
+tree3.levelOrderForEach((node) => {
+  console.log(node.data); // Should print: 2, 1, 3
+});

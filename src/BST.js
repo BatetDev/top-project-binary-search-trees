@@ -162,6 +162,31 @@ export class BST {
       currentNode = currentNode[direction];
     }
   }
+
+  // Iterative version
+  levelOrderForEach(callback) {
+    if (typeof callback !== "function") {
+      throw new Error("Callback function is required");
+    }
+
+    if (this.root === null) return;
+
+    let queue = [this.root];
+
+    while (queue.length > 0) {
+      const currentNode = queue.shift(); // Dequeue the first node
+
+      callback(currentNode); // Process the current node
+
+      // Enqueue children (left to right)
+      if (currentNode.left !== null) {
+        queue.push(currentNode.left);
+      }
+      if (currentNode.right !== null) {
+        queue.push(currentNode.right);
+      }
+    }
+  }
 }
 
 // For visualization
