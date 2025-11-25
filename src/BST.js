@@ -58,7 +58,7 @@ export class BST {
     }
   }
 
-  delete(value) {
+  deleteItem(value) {
     if (this.root === null) return;
 
     let currentNode = this.root;
@@ -81,6 +81,7 @@ export class BST {
       return;
     }
 
+    // CASE 1: Node has no children
     if (currentNode.left === null && currentNode.right === null) {
       if (parentNode === null) {
         this.root = null;
@@ -90,6 +91,49 @@ export class BST {
         } else {
           parentNode.right = null;
         }
+      }
+      return;
+    }
+
+    // CASE 2: Node has exactly ONE child
+    if (currentNode.left === null || currentNode.right === null) {
+      // Get the non-null child
+      const child =
+        currentNode.left !== null ? currentNode.left : currentNode.right;
+
+      if (parentNode === null) {
+        // Case 2a: Deleting root with one child
+        this.root = child;
+      } else {
+        // Case 2b: Deleting non-root with one child
+        if (parentNode.left === currentNode) {
+          parentNode.left = child; // Bypass the deleted node
+        } else {
+          parentNode.right = child;
+        }
+      }
+      return;
+    }
+
+    // CASE 3: Node with TWO Children
+    if (currentNode.left !== null && currentNode.right !== null) {
+      // Find in-order successor (leftmost node in right subtree)
+      let successorParent = currentNode;
+      let successor = currentNode.right;
+
+      while (successor.left !== null) {
+        successorParent = successor;
+        successor = successor.left;
+      }
+
+      // Copy successor's data to current node
+      currentNode.data = successor.data;
+
+      // Check if successor is left or right child
+      if (successorParent.left === successor) {
+        successorParent.left = successor.right;
+      } else {
+        successorParent.right = successor.right;
       }
     }
 
