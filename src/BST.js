@@ -221,21 +221,19 @@ export class BST {
   }
 
   height(value) {
-    // Find node, return null if not found
     const targetNode = this.find(value);
-    if (targetNode === null) return null;
+    if (targetNode === null) {
+      return null;
+    }
 
-    // Recursive height calculation
-    const calculateHeight = (node) => {
-      if (node === null) return -1; // Base case
+    const calculateHeight = (node) =>
+      node === null
+        ? -1
+        : 1 + Math.max(calculateHeight(node.left), calculateHeight(node.right));
 
-      const leftHeight = calculateHeight(node.left);
-      const rightHeight = calculateHeight(node.right);
-
-      return 1 + Math.max(leftHeight, rightHeight);
-    };
-
-    return calculateHeight(targetNode);
+    const result = calculateHeight(targetNode);
+    console.log(`Node ${value} | Height: ${result}`);
+    return result;
   }
 
   depth(value) {
