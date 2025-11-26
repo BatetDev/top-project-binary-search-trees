@@ -20,3 +20,8 @@ console.log(tree.height(4));
 console.log(tree.height(6));
 console.log(tree.height(3));
 console.log(tree.height(87));
+
+console.log(tree.depth(99));
+console.log(tree.depth(1));
+console.log(tree.depth(2));
+console.log(tree.depth(4));

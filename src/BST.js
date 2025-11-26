@@ -237,6 +237,32 @@ export class BST {
 
     return calculateHeight(targetNode);
   }
+
+  depth(value) {
+    if (!this.root) {
+      console.log('Tree is empty');
+      return null;
+    }
+
+    let currentNode = this.root;
+    let depthCount = 0;
+
+    while (currentNode) {
+      if (value === currentNode.data) {
+        console.log(`Node: ${currentNode.data} | Depth: ${depthCount}`);
+        return depthCount;
+      }
+
+      const direction = value < currentNode.data ? 'left' : 'right';
+      if (!currentNode[direction]) {
+        console.log(`Value ${value} not found.`);
+        return null;
+      }
+
+      currentNode = currentNode[direction];
+      depthCount++;
+    }
+  }
 }
 
 // For visualization
