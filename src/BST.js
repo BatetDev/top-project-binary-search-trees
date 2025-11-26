@@ -219,6 +219,24 @@ export class BST {
     this.postOrderForEach(callback, node.right);
     callback(node);
   }
+
+  height(value) {
+    // Find node, return null if not found
+    const targetNode = this.find(value);
+    if (targetNode === null) return null;
+
+    // Recursive height calculation
+    const calculateHeight = (node) => {
+      if (node === null) return -1; // Base case
+
+      const leftHeight = calculateHeight(node.left);
+      const rightHeight = calculateHeight(node.right);
+
+      return 1 + Math.max(leftHeight, rightHeight);
+    };
+
+    return calculateHeight(targetNode);
+  }
 }
 
 // For visualization

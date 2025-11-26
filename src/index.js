@@ -15,3 +15,8 @@ tree.inOrderForEach((node) => console.log(node.data));
 console.log('Post-order (Root last):');
 tree.postOrderForEach((node) => console.log(node.data));
 // Expected: 1, 3, 2, 5, 7, 6, 4
+
+console.log(tree.height(4));
+console.log(tree.height(6));
+console.log(tree.height(3));
+console.log(tree.height(87));
