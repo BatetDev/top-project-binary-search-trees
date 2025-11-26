@@ -163,7 +163,6 @@ export class BST {
     }
   }
 
-  // Iterative version
   levelOrderForEach(callback) {
     if (typeof callback !== "function") {
       throw new Error("Callback function is required");
@@ -186,6 +185,39 @@ export class BST {
         queue.push(currentNode.right);
       }
     }
+  }
+
+  preOrderForEach(callback, node = this.root) {
+    if (typeof callback !== "function") {
+      throw new Error("Callback function is required");
+    }
+
+    if (node === null) return;
+    callback(node);
+    this.preOrderForEach(callback, node.left);
+    this.preOrderForEach(callback, node.right);
+  }
+
+  inOrderForEach(callback, node = this.root) {
+    if (typeof callback !== "function") {
+      throw new Error("Callback function is required");
+    }
+
+    if (node == null) return;
+    this.inOrderForEach(callback, node.left);
+    callback(node);
+    this.inOrderForEach(callback, node.right);
+  }
+
+  postOrderForEach(callback, node = this.root) {
+    if (typeof callback !== "function") {
+      throw new Error("Callback function is required");
+    }
+
+    if (node === null) return;
+    this.postOrderForEach(callback, node.left);
+    this.postOrderForEach(callback, node.right);
+    callback(node);
   }
 }
 
