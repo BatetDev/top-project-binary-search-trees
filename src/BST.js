@@ -47,7 +47,7 @@ export class BST {
       }
 
       // Choose left or right base on value comparison
-      const direction = value < currentNode.data ? "left" : "right";
+      const direction = value < currentNode.data ? 'left' : 'right';
 
       // Insert if empty spot found, otherwise continue traversing
       if (!currentNode[direction]) {
@@ -142,7 +142,7 @@ export class BST {
 
   find(value) {
     if (!this.root) {
-      console.log("Tree is empty.");
+      console.log('Tree is empty.');
       return null;
     }
 
@@ -154,7 +154,7 @@ export class BST {
         return currentNode;
       }
 
-      const direction = value < currentNode.data ? "left" : "right";
+      const direction = value < currentNode.data ? 'left' : 'right';
       if (!currentNode[direction]) {
         console.log(`Value ${value} not found.`);
         return null;
@@ -164,8 +164,8 @@ export class BST {
   }
 
   levelOrderForEach(callback) {
-    if (typeof callback !== "function") {
-      throw new Error("Callback function is required");
+    if (typeof callback !== 'function') {
+      throw new Error('Callback function is required');
     }
 
     if (this.root === null) return;
@@ -188,8 +188,8 @@ export class BST {
   }
 
   preOrderForEach(callback, node = this.root) {
-    if (typeof callback !== "function") {
-      throw new Error("Callback function is required");
+    if (typeof callback !== 'function') {
+      throw new Error('Callback function is required');
     }
 
     if (node === null) return;
@@ -199,8 +199,8 @@ export class BST {
   }
 
   inOrderForEach(callback, node = this.root) {
-    if (typeof callback !== "function") {
-      throw new Error("Callback function is required");
+    if (typeof callback !== 'function') {
+      throw new Error('Callback function is required');
     }
 
     if (node == null) return;
@@ -210,8 +210,8 @@ export class BST {
   }
 
   postOrderForEach(callback, node = this.root) {
-    if (typeof callback !== "function") {
-      throw new Error("Callback function is required");
+    if (typeof callback !== 'function') {
+      throw new Error('Callback function is required');
     }
 
     if (node === null) return;
@@ -222,15 +222,15 @@ export class BST {
 }
 
 // For visualization
-export const prettyPrint = (node, prefix = "", isLeft = true) => {
+export const prettyPrint = (node, prefix = '', isLeft = true) => {
   if (node === null) {
     return;
   }
   if (node.right !== null) {
-    prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
+    prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
   }
-  console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+  console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
   if (node.left !== null) {
-    prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+    prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
   }
 };
