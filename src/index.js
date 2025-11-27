@@ -4,6 +4,7 @@ import { BST, prettyPrint } from './BST.js';
 
 const tree = new BST([4, 2, 6, 1, 3, 5, 7]);
 
+/*
 console.log('Pre-order (Root first):');
 tree.preOrderForEach((node) => console.log(node.data));
 // Expected: 4, 2, 1, 3, 6, 5, 7
@@ -25,3 +26,10 @@ console.log(tree.depth(99));
 console.log(tree.depth(1));
 console.log(tree.depth(2));
 console.log(tree.depth(4));
+*/
+
+console.log(tree.isBalanced());
+tree.insert(8);
+console.log(tree.isBalanced());
+tree.insert(9);
+console.log(tree.isBalanced());

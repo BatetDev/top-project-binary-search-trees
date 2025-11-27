@@ -261,6 +261,20 @@ export class BST {
       depthCount++;
     }
   }
+
+  isBalanced(node = this.root) {
+    if (node === null) return true; // Base case - empty = balanced
+
+    // If node.left exists, get its data, else undefined
+    const leftHeight = node.left ? this.height(node.left.data) : -1;
+    const rightHeight = node.right ? this.height(node.right.data) : -1;
+
+    const heightBalanced = Math.abs(leftHeight - rightHeight) <= 1;
+    const childrenBalanced =
+      this.isBalanced(node.left) && this.isBalanced(node.right);
+
+    return heightBalanced && childrenBalanced;
+  }
 }
 
 // For visualization
