@@ -265,7 +265,7 @@ export class BST {
   isBalanced(node = this.root) {
     if (node === null) return true; // Base case - empty = balanced
 
-    // If node.left exists, get its data, else undefined
+    // If node.left exists → proceed to the first option
     const leftHeight = node.left ? this.height(node.left.data) : -1;
     const rightHeight = node.right ? this.height(node.right.data) : -1;
 
@@ -274,6 +274,15 @@ export class BST {
       this.isBalanced(node.left) && this.isBalanced(node.right);
 
     return heightBalanced && childrenBalanced;
+  }
+
+  rebalance() {
+    // Collect values using in-order traversal
+    const values = [];
+    this.inOrderForEach((node) => values.push(node.data));
+
+    // Rebuild balanced tree
+    this.root = this.buildTree(values);
   }
 }
 

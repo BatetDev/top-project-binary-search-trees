@@ -28,8 +28,13 @@ console.log(tree.depth(2));
 console.log(tree.depth(4));
 */
 
+prettyPrint(tree.root);
 console.log(tree.isBalanced());
 tree.insert(8);
 console.log(tree.isBalanced());
 tree.insert(9);
 console.log(tree.isBalanced());
+prettyPrint(tree.root);
+tree.rebalance();
+console.log(tree.isBalanced());
+prettyPrint(tree.root);
